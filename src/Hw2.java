@@ -2,12 +2,12 @@ public class Hw2 {
     public static void main(String[] args) {
         System.out.println("Задание 1: " + fraction(5.9));
         System.out.println("Задание 2: " + sumLastNums(123));
-        System.out.println("Задание 3: " + charToNum('1'));
+        System.out.println("Задание 3: " + charToNum('9'));
         System.out.println("Задание 4: " + isPositive(10));
-        System.out.println("Задание 5: " + is2Digits(100));
+        System.out.println("Задание 5: " + is2Digits(-10));
         System.out.println("Задание 6: " + isUpperCase('G'));
-        System.out.println("Задание 7: " + isInRange(50, -11, 0));
-        System.out.println("Задание 8: " + isDivisor(9, 2));
+        System.out.println("Задание 7: " + isInRange(-11, 50, 50));
+        System.out.println("Задание 8: " + isDivisor(2, 6));
         System.out.println("Задание 9: " + isEqual(6, 5, 5));
         System.out.println("Задание 10 - Итого 4:");
         lastNumSum2(5, 11, 123, 14, 1);
@@ -18,8 +18,7 @@ public class Hw2 {
     //1. Необходимо реализовать метод таким образом, чтобы он возвращал только дробную часть числа х.
     public static double fraction(double x) {
         int num = (int) x;
-        double result = x - num;
-        return result;
+        return x - num;
     }
 
     //2. Необходимо реализовать метод таким образом, чтобы он возвращал результат сложения двух последних знаков числа х,
@@ -33,18 +32,24 @@ public class Hw2 {
     //3. Метод принимает символ х, который представляет собой один из “0 1 2 3 4 5 6 7 8 9”.
     //Необходимо реализовать метод таким образом, чтобы он преобразовывал символ в соответствующее число.
     public static int charToNum(char x) {
-        return (int) x;
+        return Character.digit(x, 10);
     }
 
     //4. Необходимо реализовать метод таким образом, чтобы он принимал число x и возвращал true если оно положительное.
     public static boolean isPositive(int x) {
-        return x >= 0;
+        return x > 0;
     }
 
     //5. Необходимо реализовать метод таким образом, чтобы он принимал число x и возвращал true если оно двузначное.
     public static boolean is2Digits(int x) {
-        int count = Integer.toString(x).length();
-        return count == 2;
+        String str = Integer.toString(x);
+        int len = str.length();
+        if (len == 2 && str.indexOf('-') != 0) {
+            return true;
+        } else if (len == 3 && str.indexOf('-') == 0) {
+            return true;
+        }
+        return false;
     }
 
     //6. Необходимо реализовать метод таким образом, чтобы он принимал символ x и возвращал
@@ -58,23 +63,20 @@ public class Hw2 {
     // (включая границы). Обратите внимание, что отношение a и b заранее неизвестно
     // (неясно кто из них больше, а кто меньше)
     public static boolean isInRange(int a, int b, int num) {
-        int first;
-        int last;
-        if (a < b) {
-            first = a;
-            last = b;
-        } else {
-            first = b;
-            last = a;
-        }
-        return num >= first && num <= last;
+        return (a <= num && num <= b) || (b <= num && num <= a);
     }
 
     //8. Необходимо реализовать метод таким образом, чтобы он возвращал true если любое из принятых чисел делит
     //другое нацело.
     public static boolean isDivisor(int a, int b) {
-        double delete = (double) a / b;
-        return delete % 1 == 0;
+        if (a == 0 && b == 0) {
+            return false;
+        } else if (a == 0 || b == 0) {
+            return true;
+        } else {
+            double delete = (double) a / b;
+            return delete % 1 == 0;
+        }
     }
 
     //9. Необходимо реализовать метод таким образом, чтобы он возвращал true если все три полученных методом числа равны
