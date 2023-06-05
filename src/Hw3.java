@@ -1,4 +1,4 @@
-public class Hw2 {
+public class Hw3 {
     public static void main(String[] args) {
         System.out.println("Задание 1: " + fraction(5.9));
         System.out.println("Задание 2: " + sumLastNums(123));
