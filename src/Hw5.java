@@ -8,7 +8,7 @@ public class Hw5 {
         System.out.println(equalNum(1111));
         square(10);
         System.out.println(" ");
-        leftTriangle(10);
+        leftTriangle(12);
         System.out.println(" ");
         rightTriangle(10);
         guessGame();
