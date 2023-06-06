@@ -1,17 +1,17 @@
 public class Hw5 {
     public static void main(String[] args) {
-//        System.out.println(listNums(12));
-//        System.out.println(reverseListNums(32));
-//        System.out.println(chet(27));
-//        System.out.println(pow(3, 8));
-//        System.out.println(numLen(80000000));
-//        System.out.println(equalNum(1111));
-//        square(10);
-//        System.out.println(" ");
-//        leftTriangle(10);
-//        System.out.println(" ");
+        System.out.println(listNums(12));
+        System.out.println(reverseListNums(32));
+        System.out.println(chet(27));
+        System.out.println(pow(3, 8));
+        System.out.println(numLen(80000000));
+        System.out.println(equalNum(1111));
+        square(10);
+        System.out.println(" ");
+        leftTriangle(10);
+        System.out.println(" ");
         rightTriangle(10);
-//        guessGame();
+        guessGame();
 
     }
 
@@ -152,8 +152,6 @@ public class Hw5 {
         System.out.println("Да, верно это число -  " + randomNum + ". Количество попыток: " + count);
     }
 }
-
-
 
 
 //Курсовой проект. Задание по теме "Циклы"
