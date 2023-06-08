@@ -7,7 +7,7 @@ public class Hw5 {
         System.out.println(reverseListNums(32));
         System.out.println(chet(27));
         System.out.println(pow(3, 8));
-        System.out.println(numLen(80000000));
+        System.out.println(numLen(1));
         System.out.println(equalNum(1111));
         square(10);
         System.out.println(" ");
@@ -23,21 +23,21 @@ public class Hw5 {
     //1. Необходимо реализовать метод таким образом, чтобы он возвращал строку,
     //в которой будут записаны все числа от 0 до x (включительно).
     public static String listNums(int x) {
-        String res = "";
+        StringBuilder res = new StringBuilder();
         for (int i = 0; i <= x; i++) {
-            res = res + i + " ";
+            res.append(i).append(" ");
         }
-        return res;
+        return res.toString();
     }
 
     //2. Необходимо реализовать метод таким образом, чтобы он возвращал строку,
     // в которой будут записаны все числа от x до 0 (включительно).
     public static String reverseListNums(int x) {
-        String res = "";
+        StringBuilder res = new StringBuilder();
         for (int i = x; i >= 0; i--) {
-            res = res + i + " ";
+            res.append(i).append(" ");
         }
-        return res;
+        return res.toString();
 
     }
 
@@ -45,11 +45,11 @@ public class Hw5 {
     // в которой будут записаны все четные числа от 0 до x (включительно).
     // Подсказа для обеспечения качества кода: инструкцию if использовать не следует.
     public static String chet(int x) {
-        String res = "";
+        StringBuilder res = new StringBuilder();
         for (int i = 2; i < x; i += 2) {
-            res = res + i + " ";
+            res.append(i).append(" ");
         }
-        return res;
+        return res.toString();
     }
 
     //4. Необходимо реализовать метод таким образом, чтобы он возвращал результат возведения x в степень y.
@@ -67,6 +67,9 @@ public class Hw5 {
     //5. Необходимо реализовать метод таким образом, чтобы он возвращал количество знаков в числе x.
     public static int numLen(long x) {
         int count = 0;
+        if (x == 0){
+            return count + 1;
+        }
         while (x != 0) {
             count++;
             x /= 10;
