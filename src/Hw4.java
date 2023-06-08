@@ -1,11 +1,11 @@
 public class Hw4 {
     public static void main(String[] args) {
         System.out.println(abs(-1));
-        System.out.println(safeDiv(5, 2));
+        System.out.println(safeDiv(5, 0));
         System.out.println(max(-1, -5));
-        System.out.println(makeDecision(-1, 7));
-        System.out.println(max3(-10, -7, -5));
-        System.out.println(sum3(1, 2, 1));
+        System.out.println(makeDecision(0, 0));
+        System.out.println(max3(5, 3, 3));
+        System.out.println(sum3(1, 2, 91));
         System.out.println(sum2(19, 2));
         System.out.println(is35(30));
         System.out.println(magic6(1, 6));
@@ -56,6 +56,10 @@ public class Hw4 {
             return x;
         } else if (y > x && y > z) {
             return y;
+        } else if (y == x && y > z) {
+            return y;
+        } else if (z == x && z > y) {
+            return z;
         }
         return z;
     }
@@ -63,13 +67,7 @@ public class Hw4 {
     //6. Необходимо реализовать метод таким образом, чтобы он возвращал true, если два любых числа (из трех принятых)
     // можно сложить так, чтобы получить третье.
     public static boolean sum3(int x, int y, int z) {
-        if (x + y == z) {
-            return true;
-        } else if (x + z == y) {
-            return true;
-        } else if (y + z == x) {
-            return true;
-        } else return false;
+        return x + y == z || x + z == y || y + z == x;
     }
 
     //7. Необходимо реализовать метод таким образом, чтобы он возвращал сумму чисел x и y.
@@ -96,14 +94,7 @@ public class Hw4 {
     //9. Необходимо реализовать метод таким образом, чтобы он возвращал true,
     // если одно из принятых методом чисел равно шести, или их сумма равна шести, или разница между ними равна шести.
     public static boolean magic6(int x, int y) {
-        if (x == 6 || y == 6) {
-            return true;
-        } else if (x + y == 6) {
-            return true;
-        } else if (x - y == 6 || y - x == 6) {
-            return true;
-        }
-        return false;
+        return (x == 6 || y == 6) || (x + y == 6) || (x - y == 6 || y - x == 6);
     }
 
 
@@ -132,7 +123,7 @@ public class Hw4 {
 
     //11. Метод принимает число x, обозначающее день недели. Необходимо реализовать метод таким образом,
     //чтобы он возвращал строку, которая будет обозначать текущий день недели, где 1- это понедельник,
-    //а 7 – воскресенье. Если число не от 1 до 7 то верните текст “это не день недели”.
+    //а 7 – воскресенье. Если число не от 1 до 7, то верните текст “это не день недели”.
     //Вместо if в данной задаче используйте switch.
     public static String day(int x) {
         return switch (x) {
