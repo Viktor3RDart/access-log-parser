@@ -45,7 +45,7 @@ public class Hw4 {
         } else if (x < y) {
             return ("результат: " + x + " < " + y);
         } else {
-            return ("результат: " + x + " = " + y);
+            return ("результат: " + x + " == " + y);
         }
     }
 
