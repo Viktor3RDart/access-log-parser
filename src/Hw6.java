@@ -31,8 +31,6 @@ public class Hw6 {
         System.out.println(Arrays.toString(add(arr2, 9, 3)));
         //12
         System.out.println(Arrays.toString(add(arr2, arr3, 2)));
-
-
     }
 
     //1. Необходимо реализовать метод таким образом, чтобы он возвращал индекс первого вхождения числа x в массив arr.
