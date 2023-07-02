@@ -26,12 +26,19 @@ import java.util.Arrays;
 
 public class Hw7_2 {
     public static void main(String[] args) {
-        Hw7_1.Point point1 = new Hw7_1.Point(1, 3);
-        int[] point_mas1 = {point1.x1, point1.y1};
-        Hw7_1.Point point2 = new Hw7_1.Point(5, 8);
-        int[] point_mas2 = {point2.x1, point2.y1};
-        Line line1 = new Line(point_mas1, point_mas2);
-        System.out.println(line1);
+        Hw7_1.Point point_1_1 = new Hw7_1.Point(1, 3);
+        int[] point_mas1_1 = {point_1_1.x1, point_1_1.y1};
+        Hw7_1.Point point_1_2 = new Hw7_1.Point(5, 8);
+        int[] point_mas_1_2 = {point_1_2.x1, point_1_2.y1};
+        Line line1 = new Line(point_mas1_1, point_mas_1_2);
+        Hw7_1.Point point_2_1 = new Hw7_1.Point(10, 11);
+        int[] point_mas2_1 = {point_2_1.x1, point_2_1.y1};
+        Hw7_1.Point point_2_2 = new Hw7_1.Point(15, 19);
+        int[] point_mas_2_2 = {point_2_2.x1, point_2_2.y1};
+        Line line2 = new Line(point_mas2_1, point_mas_2_2);
+        Line line3 = new Line(point_mas_1_2, point_mas2_1);
+        System.out.println(line3);
+        System.out.println("Сумма длин линий - " + (line1.length() + line2.length() + line3.length()));
     }
 
     public static class Line {
@@ -46,12 +53,12 @@ public class Hw7_2 {
         }
 
         public String toString() {
-            return "Линия от " + Arrays.toString(line[0]) + " до " + Arrays.toString(line[1]) + "\n" + "длина линии : "
-                    + Length(line);
+            return "Линия от " + Arrays.toString(line[0]) + " до " + Arrays.toString(line[1]);
         }
 
-        public int Length(int[][] line) {
-            return (int) ((int) Math.pow((line[1][1] - line[0][1]), 2) + Math.pow((line[1][0] - line[0][0]), 2));
+        public int length() {
+            return (int) ((int) Math.pow((line[1][1] - line[0][1]), 2) + Math.pow((line[1][0]
+                    - line[0][0]), 2));
         }
     }
 
