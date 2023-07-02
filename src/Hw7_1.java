@@ -21,18 +21,28 @@ public class Hw7_1 {
     }
 
     public static class Point {
-        int x;
-        int y;
+        int x1;
+        int y1;
+        int x2;
+        int y2;
+        String print;
 
-        public Point(int x, int y) {
-            this.x = x;
-            this.y = y;
+
+        public Point(int x1, int y1) {
+            this.x1 = x1;
+            this.y1 = y1;
+            this.print = "short";
         }
 
         public String toString() {
-            return "{" + x +
-                    ";" + y +
-                    '}';
+            if (this.print.equals("short")) {
+                return "{" + x1 +
+                        ";" + y1 +
+                        '}';
+            } else return "Линия от {" + x1 + ";" + y1 + "} до {" + x2 + ";" + y2 + "}";
+        }
+        public int Length(){
+            return (int) ((int)  Math.pow((y2 - y1), 2) + Math.pow((x2 - x1),2));
         }
     }
 }
