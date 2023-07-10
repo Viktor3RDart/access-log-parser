@@ -33,14 +33,15 @@ public class List_1 {
     }
 
     private static int Give_num() throws IOException {
-        System.out.print("Введите положительное четное число: ");
+        System.out.print("Введите четное число: ");
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String num = reader.readLine();
         int num_int = Integer.parseInt(num);
-        if (num_int % 2 != 0) {
-            throw new RuntimeException("Вы ввели не четное число");
-        } else if (num_int == 0) {
-            throw new RuntimeException("Вы ввели 0");
+        while ((num_int % 2 != 0) || num_int == 0) {
+            System.out.println("Вы ввели не четное число или 0");
+            System.out.print("Введите четное число: ");
+            num = reader.readLine();
+            num_int = Integer.parseInt(num);
         }
         return num_int;
     }
