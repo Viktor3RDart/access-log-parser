@@ -1,32 +1,23 @@
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
-//Перед вами готовый к использованию метод printList(ArrayList<Integer>), который  все элементы списка по порядку
-//        выводит в консоль.
+//Задача состоит в том, чтобы метод getStringFromStream(Stream<String>) превращал входящий поток строк стримов в строку,
+//        слова в которой нужно разделить пробелом. Порядок слов в строке должен быть равен порядку слов в потоке.
 //
-//        Сейчас метод реализован с использованием оператора for.
-//
-//        Задача: переписать реализацию метода printList(ArrayList<Integer>), используя метод списка forEach(),
-//        принимающий лямбда-выражение. Логика работы метода остается той же.
-//
-//        Подсказка: нужно использовать лямбда-выражение, передавая его в метод forEach().
+//        Подсказка: Для реализации можно использовать метод collect() у  Stream<String>.
+//        В качестве параметра нужно передать коллектор (объект типа Collector<String>).
+//        Коллектор можно получить, вызвав метод joining() у класса Collectors.
+
 public class Lambda_1 {
-    public static void printList(ArrayList list) {
-        for (int i = 0; i < list.size(); i++) {
-            System.out.println(list.get(i));
-        }
-    }
-
-    public static void printList_lambda(ArrayList list) {
-        list.stream().forEach(i-> System.out.println(i));
+    public static String getStringFromStream(Stream<String> stringStream) {
+        return stringStream.collect(Collectors.joining(" "));
     }
 
     public static void main(String[] args) {
-        ArrayList<Integer> list = new ArrayList<>(Arrays.asList(1,2,3,4));
-        ArrayList<String> list2 = new ArrayList<>(Arrays.asList("жук", "Мук", "внук"));
-        System.out.println(" - Лист обычный:");
-        printList(list2);
-        System.out.println(" - Лист лямбда:");
-        printList_lambda(list2);
+        ArrayList<String> one = new ArrayList<>(List.of("Первый", "Второй", "Третий"));
+        Stream<String> stream = one.stream();
+        System.out.println(getStringFromStream(stream));
     }
 }
