@@ -36,7 +36,6 @@ import java.util.Arrays;
 import java.util.List;
 
 
-
 public class Cat {
     private static String breed = "Persian"; // порода
     public String name;
@@ -57,6 +56,7 @@ public class Cat {
                 ", friendsName=" + friendsName +
                 '}';
     }
+
     public void CatNull() {
         this.name = null;
         this.age = 0;
@@ -65,7 +65,7 @@ public class Cat {
     }
 
     public static void main(String[] args) {
-        ArrayList<String> friend = new ArrayList<>(Arrays.asList("Кожаный мешок","Казачек"));
+        ArrayList<String> friend = new ArrayList<>(Arrays.asList("Кожаный мешок", "Казачек"));
         Cat cat = new Cat("Вася", 10, friend);
         System.out.println(breed + " " + cat);
         cat.CatNull();
